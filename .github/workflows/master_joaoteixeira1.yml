@@ -34,6 +34,7 @@ jobs:
         file: ./Dockerfile
 
   validation:
+    needs: build
     name: "Analysis"
     runs-on: ubuntu-latest
     steps:
