@@ -1,4 +1,5 @@
 const express = require('express')
 const app = express()
-app.get('/',(req,res)=>RegExp.send('Hello Express'))
-app.listen(80)
+
+app.get('/', (req, res) => res.send('Hello World!'))
+app.listen(3000, () => console.log('Server ready'))
