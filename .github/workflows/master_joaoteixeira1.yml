@@ -33,6 +33,18 @@ jobs:
         tags: joaoteixeira1.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_4dce36bbbf434854b6066208e4ee18dc }}/hello-express:${{ github.sha }}
         file: ./Dockerfile
 
+  validation:
+    name: "Analysis"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: NodeSecure/ci-action@v1
+        with:
+            strategy: npm
+            vulnerabilities: medium
+            warnings: off
+            reporters: console
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
